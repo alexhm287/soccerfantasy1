@@ -12,6 +12,7 @@ import CreatePlayer from '../../pages/CreatePlayer'
 import PlayerList from '../../components/PlayerList'
 import MyPlayerList from '../../components/MyPlayerList'
 import TeamList from '../../components/TeamList'
+import "./Dashboard.css"
 
 class Dashboard extends Component {
   state = {

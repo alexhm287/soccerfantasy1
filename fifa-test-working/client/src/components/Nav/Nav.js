@@ -2,13 +2,14 @@
 import React from 'react'
 import { Link, Route } from 'react-router-dom'
 import AuthInterface from '../../utils/AuthInterface'
+import "./Nav.css";
 
 const Nav = () => (
   <nav className='navbar navbar-inverse navbar-top'>
     <div className='container-fluid'>
       <div className='navbar-header'>
         <Link to='/' className='navbar-brand'>
-          Coding BootCamp FC
+          Coding BootCamp FC ⚽️
         </Link>
       </div>
       {

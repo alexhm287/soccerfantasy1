@@ -73,9 +73,9 @@ socketIo.on('connection', socket => {
 // OUT LINES  76 & 78
 //=================================================
 
-const db = require('./models/index.js')
+// const db = require('./models/index.js')
 
-db.sequelize.sync({ force: true })
+// db.sequelize.sync({ force: true })
 
 //=================================================
 const PORT = process.env.PORT || 3001

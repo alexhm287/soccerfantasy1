@@ -1,0 +1,9 @@
+body {
+    background-image: url("../../img/stadium.jpg");
+    background-position: fixed; 
+    color: white;
+ }
+
+ h2 {
+     color: white;
+ }

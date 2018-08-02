@@ -15,7 +15,15 @@ module.exports = function(sequelize, DataTypes) {
     },
     strength: {
       type: DataTypes.INTEGER
-    }
+    },
+    priceTag: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    imgUrl: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    }, 
   }, {
     tableName: 'players'
   })

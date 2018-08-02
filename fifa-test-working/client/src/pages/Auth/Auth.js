@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom'
 import { Col, Row, Container } from '../../components/Grid'
 import { Input, FormBtn } from '../../components/Form'
 import ErrorDisplay from '../../components/ErrorDisplay'
+import "./Auth.css"
 
 class Auth extends Component {
 
@@ -88,7 +89,7 @@ class Auth extends Component {
 
             <h1 style={{ textAlign: 'center', padding: 25 }}>
               {
-                newUser ? 'Signup' : 'Login'
+                newUser ? '⚽️ Signup ⚽️' : '⚽️ Login ⚽️'
               }
             </h1>
 
