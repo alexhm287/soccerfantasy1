@@ -33,11 +33,18 @@ module.exports = {
     dialect: "mysql",
     logging: null // don't show the SQL queries when running tests
   },
+  // production: {
+  //   username: process.env.DB_USER,
+  //   password: process.env.DB_PASSWORD,
+  //   database: process.env.DB_NAME,
+  //   host: process.env.DB_HOST,
+  //   dialect: "mysql"
+  // },
   production: {
-    username: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-    host: process.env.DB_HOST,
+    username: "holc33t7c4p9qbju",
+    password: "qornrq67c4ijpk2q",
+    database: "bkqvlsmhs64cmhp3",
+    host: "enqhzd10cxh7hv2e.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     dialect: "mysql"
   },
 }
