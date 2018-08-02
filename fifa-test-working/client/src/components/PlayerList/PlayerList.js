@@ -25,7 +25,7 @@ class PlayerList extends Component {
                   <div key={ player.id }  className='row'>
                       <div className='text-left col-md-7 col-md-offset-1'
                             style={{ paddingTop: 2, paddingBottom: 2, paddingRight: 20, marginTop: 2, marginBottom: 2, borderRadius: 10 }}>
-                            <strong style={{ paddingRight: 20 }}>{ player.name }  ({ player.strength}) </strong>
+                            <strong style={{ paddingRight: 20 }}>{ player.name }  ({ '$' + (player.strength * 10000)}) </strong>
                             <AddBtn id={player.id} onClick={this.addPlayer.bind(this)}/>
                       </div>
                   </div>

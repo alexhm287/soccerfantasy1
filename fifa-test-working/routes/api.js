@@ -93,6 +93,22 @@ module.exports = app => {
         }
       }
       const players = await db.Player.findAll(findOptions);
+      if (players.length <= 0) {
+        await db.Player.create({ name: "Ronaldo", strength: 10 })
+        await db.Player.create({ name: "Messi", strength: 5 })
+        await db.Player.create({ name: "Neymar", strength: 8 })
+        await db.Player.create({ name: "Luis", strength: 6 })
+        await db.Player.create({ name: "Modric", strength: 4 })
+        await db.Player.create({ name: "Mueller", strength: 9 })
+        await db.Player.create({ name: "Maradona", strength: 10 })
+        await db.Player.create({ name: "Avis", strength: 4 })
+        await db.Player.create({ name: "Macky", strength: 5 })
+        await db.Player.create({ name: "Jaul", strength: 7 })
+        await db.Player.create({ name: "Raul", strength: 8 })
+        await db.Player.create({ name: "Micky", strength: 2 })
+        await db.Player.create({ name: "Ricky", strength: 1 })
+        await db.Player.create({ name: "Randy", strength: 1 })
+      }
       res.json(players)
     }
     catch (err) {
@@ -168,11 +184,23 @@ module.exports = app => {
       const user = await db.User.findOne({ where: { id: uid }})
       const team = await user.getTeam()
       const players = await team.getPlayers();
+      var success = false;
+      var budget = user.budget;
+
       if (players.length < 5) {
         const player = await db.Player.findOne({ where: { id: pid }})
-        await player.update({TeamId: team.id})
+        var str = player.strength;
+        var playerVal = str * 10000;
+        
+        var newBudget = budget - playerVal;
+        if (newBudget >= 0) {
+          await player.update({ TeamId: team.id })
+          budget = newBudget;          
+          await user.update({budget: budget})
+          success = true;
+        }
       }
-      res.json({success: true})
+      res.json({ success: success, budget: budget })
     }
     catch (err) {
       console.log('Error adding player to team: ', err)

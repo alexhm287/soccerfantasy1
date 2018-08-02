@@ -20,7 +20,8 @@ class Dashboard extends Component {
       players: [],
       myPlayers: [],
       team: {},
-      matchScore: "You havn't played any matches yet!"
+      matchScore: "You havn't played any matches yet!",
+      budgetMsg: "Don't know your budget yet."
   };
 
   componentDidMount() {
@@ -30,8 +31,11 @@ class Dashboard extends Component {
   addPlayer(playerId) {
     const user = AuthInterface.getUser()
     API.addPlayerToTeam(user.id, playerId).then(res => {
-        console.log("Added player to team");
-        this.updatePlayers()
+      console.log("Added player to team");
+      console.log(res);
+      const user = AuthInterface.getUser()
+      user.budget = res.data.budget;
+      this.updatePlayers()
     })
   }
 
@@ -51,6 +55,11 @@ class Dashboard extends Component {
   updatePlayers() {
     console.log("************ Updating state...");
     const user = AuthInterface.getUser()
+    if (!user.budget) {
+      user.budget = 300000;
+    }
+    var msg = "Your budget is $" + user.budget;
+    this.setState({ budgetMsg: msg })
     console.log(user);
     // Find or create the teams
     API.getMyTeam(user.id).then (res => {
@@ -94,6 +103,9 @@ class Dashboard extends Component {
           <Container fluid>
             <Row>
               {this.state.matchScore}
+            </Row>
+            <Row>
+              {this.state.budgetMsg}
             </Row>
             <Row>
               <CreatePlayer updatePlayers={this.updatePlayers.bind(this)}/>
