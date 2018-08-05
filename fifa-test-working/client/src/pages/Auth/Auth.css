@@ -1,9 +1,19 @@
-body {
-    background-image: url("../../img/stadium.jpg");
-    background-position: fixed; 
+.auth {
+    background-image: url("../../img/stadium.jpg") !important;
+    background-size: cover;
+    background-repeat: no-repeat;
     color: white;
+    height: 100vh;
  }
 
  h2 {
      color: white;
  }
+
+  
+  .row-first {
+    height: 80vh;
+    overflow: hidden;
+  }
+
+ 

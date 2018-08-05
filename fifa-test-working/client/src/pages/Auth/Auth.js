@@ -14,7 +14,8 @@ class Auth extends Component {
     username: '',
     password: '',
     newUser: false,
-    loggedIn: false
+    loggedIn: false,
+    backgroundImage: "url('../../img/stadium.jpg')",
   }
 
   componentDidMount() {
@@ -72,6 +73,7 @@ class Auth extends Component {
 
   render() {
     const { loggedIn, newUser, errors, username, password } = this.state
+    
 
     if ( loggedIn ) {
       return (
@@ -80,7 +82,8 @@ class Auth extends Component {
     }
 
     return (
-      <Container fluid>
+      <div className='auth'>
+      <Container fluid >
         <Row>
 
           <Col size='md-4'></Col>
@@ -133,10 +136,14 @@ class Auth extends Component {
         </Row>
 
         <ErrorDisplay errors={ errors } dismiss={ this.dismissError } />
-
       </Container>
+    </div>
+
     )
+  
   }
+  
+
 }
 
 export default Auth

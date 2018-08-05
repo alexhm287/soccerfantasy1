@@ -1,5 +1,5 @@
-body {
-    background-image: url("../../img/lockerroom.jpg");
+.dash {
+    background-image: url("../../img/lockerroom.jpg"); 
     background-size: cover;
     color: white;
  }

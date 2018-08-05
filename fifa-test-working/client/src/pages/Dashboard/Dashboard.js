@@ -57,7 +57,7 @@ class Dashboard extends Component {
     console.log("************ Updating state...");
     const user = AuthInterface.getUser()
     if (!user.budget) {
-      user.budget = 300000;
+      user.budget = 1000000;
     }
     var msg = "Your budget is $" + user.budget;
     this.setState({ budgetMsg: msg })
@@ -101,6 +101,7 @@ class Dashboard extends Component {
 
     render() {
         return (
+          <div className='dash'>
           <Container fluid>
             <Row>
               {this.state.matchScore}
@@ -130,6 +131,7 @@ class Dashboard extends Component {
             </Col>
           </Row>
         </Container>
+        </div>
         );
     }
 }

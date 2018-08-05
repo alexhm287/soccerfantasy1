@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     budget: {
       type: DataTypes.INTEGER,
-      defaultValue: 300000
+      defaultValue: 1000000
     }
   }, {
     // Hooks are automatic methods that run during various phases of the User Model lifecycle
@@ -48,10 +48,6 @@ module.exports = function(sequelize, DataTypes) {
   }
 
   User.associate = function (models) {
-    User.hasMany(models.Message)
-    User.belongsToMany(models.Conversation, {
-      through: 'UserTeam'
-    })
     User.hasOne(models.Team)
 
   }
