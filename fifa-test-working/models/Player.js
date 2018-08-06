@@ -16,10 +16,6 @@ module.exports = function(sequelize, DataTypes) {
     strength: {
       type: DataTypes.DECIMAL( 3 , 1 ),
     },
-    priceTag: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     imgUrl: {
       type: DataTypes.STRING,
       allowNull: false,

@@ -5,6 +5,7 @@ import { List, ListItem } from '../../components/List'
 import { Input, FormBtn } from '../../components/Form'
 import ErrorDisplay from '../../components/ErrorDisplay'
 import API from '../../utils/API'
+import "./CreatePlayer.css"
 
 class NewPlayer extends Component {
 
@@ -56,7 +57,6 @@ class NewPlayer extends Component {
     return (
       <Container fluid>
         <Row>
-          <Col size='md-4'></Col>
           <Col size='md-4'>
                 <div>
                   <div style={{ marginBottom: 25 }}>

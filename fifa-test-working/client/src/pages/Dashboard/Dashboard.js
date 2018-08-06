@@ -3,11 +3,7 @@ import React, { Component } from 'react'
 import API from '../../utils/API'
 import io from 'socket.io-client'
 import AuthInterface from '../../utils/AuthInterface'
-import { Link } from 'react-router-dom'
 import { Col, Row, Container } from '../../components/Grid'
-import { List, ListItem } from '../../components/List'
-import { Input, FormBtn } from '../../components/Form'
-import MessageList from '../../components/MessageList'
 import CreatePlayer from '../../pages/CreatePlayer'
 import PlayerList from '../../components/PlayerList'
 import MyPlayerList from '../../components/MyPlayerList'
@@ -109,6 +105,13 @@ class Dashboard extends Component {
             <Row>
               {this.state.budgetMsg}
             </Row>
+            {/* WINS AND LOSSES HERE */}
+            <Col size='md-4'>
+            <h2> Win - Loss Record 
+              <br/>
+                       0 - 0
+            </h2>
+            </Col>
             <Row>
               <CreatePlayer updatePlayers={this.updatePlayers.bind(this)}/>
             </Row>
@@ -125,7 +128,7 @@ class Dashboard extends Component {
             </Col>
           </Row>
           <Row>
-            <Col size="md-6">
+            <Col size="md-12">
               <h2>Play Teams</h2>
               <TeamList users={this.state.users} updateMatch={this.updateMatchScore.bind(this)} />
             </Col>

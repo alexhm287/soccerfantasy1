@@ -24,7 +24,13 @@ module.exports = function(sequelize, DataTypes) {
     },
     budget: {
       type: DataTypes.INTEGER,
-      defaultValue: 1000000
+      defaultValue: 500000
+    },
+    Wins: {
+      type: DataTypes.INTEGER,
+    },
+    Losses: {
+      type: DataTypes.INTEGER,
     }
   }, {
     // Hooks are automatic methods that run during various phases of the User Model lifecycle

@@ -3,7 +3,6 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 // import Conversations from './pages/Conversations'
 import Dashboard from './pages/Dashboard'
-import CreateConversation from './pages/CreateConversation'
 import Auth from './pages/Auth'
 import NoMatch from './pages/NoMatch'
 import Nav from './components/Nav'
@@ -16,7 +15,6 @@ const App = () => (
       <Switch>
         <Route exact path='/login' component={ Auth } />
         <PrivateRoute exact path='/' component={ Dashboard } />
-        <PrivateRoute exact path='/conversation/new' component={ CreateConversation } />
         <Route component={ NoMatch } />
       </Switch>
     </div>
