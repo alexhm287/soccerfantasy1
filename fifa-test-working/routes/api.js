@@ -93,22 +93,6 @@ module.exports = app => {
         }
       }
       const players = await db.Player.findAll(findOptions);
-      if (players.length <= 0) {
-        await db.Player.create({ name: "Ronaldo", strength: 10 })
-        await db.Player.create({ name: "Messi", strength: 5 })
-        await db.Player.create({ name: "Neymar", strength: 8 })
-        await db.Player.create({ name: "Luis", strength: 6 })
-        await db.Player.create({ name: "Modric", strength: 4 })
-        await db.Player.create({ name: "Mueller", strength: 9 })
-        await db.Player.create({ name: "Maradona", strength: 10 })
-        await db.Player.create({ name: "Avis", strength: 4 })
-        await db.Player.create({ name: "Macky", strength: 5 })
-        await db.Player.create({ name: "Jaul", strength: 7 })
-        await db.Player.create({ name: "Raul", strength: 8 })
-        await db.Player.create({ name: "Micky", strength: 2 })
-        await db.Player.create({ name: "Ricky", strength: 1 })
-        await db.Player.create({ name: "Randy", strength: 1 })
-      }
       res.json(players)
     }
     catch (err) {
@@ -144,13 +128,26 @@ module.exports = app => {
           myStrength += myPlayers[i].strength;
           opStrength += opPlayers[i].strength;
       } 
+      var myWins = me.wins
+      var myLosses = me.losses
+      var theirWins = them.wins
+      var theirLosses = them.losses
       if (myStrength > opStrength) {
-        res.json({won: true})
+        myWins++
+        theirLosses++
       }
       else {
-        res.json({won: false})
+        myLosses++
+        theirWins++
       }
-
+      await me.update({ wins: myWins, losses: myLosses })
+      await them.update({ wins: theirWins, losses: theirLosses })
+      if (myStrength > opStrength) {
+        res.json({ won: true })
+      }
+      else {
+        res.json({ won: false })
+      }
   })
 
   app.get('/myplayers/:uid', async function(req, res) {
@@ -237,77 +234,6 @@ module.exports = app => {
     }
   })
 
-  app.get('/conversations', async function(req, res) {
 
-    try {
-      const findOptions = {
-        include: [
-          {
-            model: db.Message,
-            order: [['createdAt', 'DESC']],
-            include: [{ model: db.User }]
-          },
-          db.User
-        ],
-        order: [['createdAt', 'DESC']]
-      }
-      const user = await db.User.findOne({ where: { id: req.user.id }})
-      const conversations = await user.getConversations(findOptions)
-
-      res.json(conversations)
-    }
-    catch (err) {
-      console.log('Error getting conversations: ', err)
-      res.status(500).send('Error getting conversations')
-    }
-
-  })
-
-  app.post('/conversations', async function(req, res) {
-
-    const { users, title } = req.body
-    users.push(req.user)
-
-    try {
-      const conversation = await db.Conversation.create({ title })
-      const findOptions = {
-        where: {
-          id: {
-            [Op.in]: users.map( u => u.id )
-          }
-        }
-      }
-      const userInstances = await db.User.findAll(findOptions)
-      await conversation.setUsers(userInstances)
-
-      res.json(conversation)
-    }
-    catch (err) {
-      console.log('Error creating conversation: ', err)
-      res.status(500).send('Error creating conversation')
-    }
-  })
-
-
-
-  //
-  //
-  // messages
-  //
-  //
-
-  app.post('/messages', async function(req, res) {
-
-    try {
-      const message = await db.Message.create(req.body)
-
-      res.json(message)
-    }
-    catch (err) {
-      console.log('Error creating message: ', err)
-      res.status(500).send('Error creating message')
-    }
-
-  })
 
 }

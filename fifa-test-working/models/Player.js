@@ -18,7 +18,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     imgUrl: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true
     }, 
   }, {
     tableName: 'players'

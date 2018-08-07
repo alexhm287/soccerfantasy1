@@ -27,7 +27,7 @@ class TeamList extends Component {
             score += 1
           }
         }
-        this.props.updateMatch(score, matches)
+        this.props.updateMatch(score, matches, res.data.won)
     })
   }
 

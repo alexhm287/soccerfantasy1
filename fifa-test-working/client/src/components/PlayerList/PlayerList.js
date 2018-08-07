@@ -23,6 +23,7 @@ class PlayerList extends Component {
               {
                 players.map( player => (
                   <div key={ player.id }  className='row'>
+                      <img src={ player.imgUrl }></img>
                       <div className='text-left col-md-7 col-md-offset-1'
                             style={{ paddingTop: 2, paddingBottom: 2, paddingRight: 20, marginTop: 2, marginBottom: 2, borderRadius: 10 }}>
                             <strong style={{ paddingRight: 20 }}>{ player.name }  ({ '$' + (player.strength * 10000)}) </strong>

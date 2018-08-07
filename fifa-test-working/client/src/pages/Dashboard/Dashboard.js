@@ -18,7 +18,9 @@ class Dashboard extends Component {
       myPlayers: [],
       team: {},
       matchScore: "You havn't played any matches yet!",
-      budgetMsg: "Don't know your budget yet."
+      budgetMsg: "Don't know your budget yet.",
+      wins: 11,
+      losses: 11
   };
 
   componentDidMount() {
@@ -36,9 +38,16 @@ class Dashboard extends Component {
     })
   }
 
-  updateMatchScore(score, matches) {
+  updateMatchScore(score, matches, won) {
     var ms = "You won " + score + " out of " + matches + " matches."
-    this.setState({matchScore: ms})
+    const user = AuthInterface.getUser()
+    if (won) {
+      user.wins++
+    }
+    else {
+      user.losses++
+    }
+    this.setState({ matchScore: ms, wins: user.wins, losses: user.losses })
   }
 
   removePlayer(playerId) {
@@ -55,6 +64,7 @@ class Dashboard extends Component {
     if (!user.budget) {
       user.budget = 1000000;
     }
+    this.setState({wins: user.wins, losses: user.losses})
     var msg = "Your budget is $" + user.budget;
     this.setState({ budgetMsg: msg })
     console.log(user);
@@ -109,7 +119,7 @@ class Dashboard extends Component {
             <Col size='md-4'>
             <h2> Win - Loss Record 
               <br/>
-                       0 - 0
+                  {this.state.wins} - {this.state.losses}
             </h2>
             </Col>
             <Row>
