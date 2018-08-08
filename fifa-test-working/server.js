@@ -50,9 +50,6 @@ app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, './client/build/index.html'))
 })
 
-app.get('/', function(req, res, next){
-  res.sendStatus(200);
-});
 
 // Setup socket.io
 socketIo.on('connection', socket => {
