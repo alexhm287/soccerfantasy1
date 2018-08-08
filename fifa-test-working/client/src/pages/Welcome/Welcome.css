@@ -1,0 +1,26 @@
+.welcome {
+    background-image: url("../../img/giphy.gif") !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    height: 100vh;
+ }
+
+ h2 {
+     color: white;
+ }
+
+  
+  .row-first {
+    height: 80vh;
+    overflow: hidden;
+  }
+
+  .btn-xlarge {
+    padding: 18px 28px;
+    font-size: 22px; //change this to your desired size
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+}  

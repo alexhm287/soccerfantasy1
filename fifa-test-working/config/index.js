@@ -1,7 +1,7 @@
 // mysql://b6c03a3942e4de:ce4f1ffd@us-cdbr-iron-east-04.cleardb.net/heroku_d5f4a6c6bcdfd45?reconnect=true
 
 module.exports = {
- development1: {
+ development: {
     username: "root",
     password: null,
     database: "ucbproject3",
@@ -9,7 +9,7 @@ module.exports = {
     dialect: "mysql",
     logging: null
   },
-   development: {
+   development1: {
      username: "b6c03a3942e4de",
      password: "ce4f1ffd",
      database: "heroku_d5f4a6c6bcdfd45",
@@ -32,11 +32,12 @@ module.exports = {
   //   host: process.env.DB_HOST,
   //   dialect: "mysql"
   // },
+
   production: {
-    username: "holc33t7c4p9qbju",
-    password: "qornrq67c4ijpk2q",
-    database: "bkqvlsmhs64cmhp3",
-    host: "enqhzd10cxh7hv2e.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    username: "ripevbk00fga0zbb",
+    password: "xsykmiizhaypk8wm",
+    database: "l91nxicwb5ohms57",
+    host: "a5s42n4idx9husyc.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     dialect: "mysql"
   },
 }

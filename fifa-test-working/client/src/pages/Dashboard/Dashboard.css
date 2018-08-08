@@ -12,3 +12,12 @@
      color: white;
      background-color: red;
  }
+
+img {
+    height: 100px;
+    width: 100px;
+ }
+
+.row {
+    font-family: sans-serif;
+} 
